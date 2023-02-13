@@ -9,6 +9,7 @@ import './index.css';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
+// the Provider component is used to provide the store to the rest of the app, passing the store as a prop.
 root.render(
   <React.StrictMode>
     <Provider store={store}>
