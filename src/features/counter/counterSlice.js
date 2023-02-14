@@ -1,3 +1,5 @@
+// Immer is a library that helps us write immutable code in a more convenient way. It uses  a JS Proxy to detect changes to a "draft state" and produces a brand new immutable state based off those changes. Immer is used in Redux Toolkit to allow us to write "mutating" logic in reducers. It doesn't actually mutate the state because it uses the Immer library, which detects changes to a "draft state" and produces a brand new immutable state based off those changes.
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { fetchCount } from './counterAPI';
 
@@ -8,9 +10,9 @@ const initialState = {
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
+// will call the thunk with the `dispatch` function as the first argument. Async 
 // code can then be executed and other actions can be dispatched. Thunks are
-// typically used to make async requests.
+// typically used to make async requests (fetching data from a server).
 export const incrementAsync = createAsyncThunk(
   'counter/fetchCount',
   async (amount) => {
@@ -26,10 +28,7 @@ export const counterSlice = createSlice({
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+      // Redux Toolkit allows us to write "mutating" logic in reducers. Below we see the Immer library in practice.
       state.value += 1;
     },
     decrement: (state) => {
